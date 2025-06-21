@@ -2,6 +2,34 @@
   "extends": "@adonisjs/tsconfig/tsconfig.app.json",
   "compilerOptions": {
     "rootDir": "./",
-    "outDir": "./build"
-  }
+    "outDir": "./build",
+    "baseUrl": "./", // ¡Asegúrate de que esta línea esté presente!
+    "paths": {
+      "#controllers/*": ["./app/Controllers/*"], // ¡Esta línea es crucial!
+      "#exceptions/*": ["./app/Exceptions/*"],
+      "#models/*": ["./app/Models/*"],
+      "#mails/*": ["./app/Mails/*"],
+      "#services/*": ["./app/Services/*"],
+      "#listeners/*": ["./app/Listeners/*"],
+      "#events/*": ["./app/Events/*"],
+      "#middleware/*": ["./app/Middleware/*"],
+      "#validators/*": ["./app/Validators/*"],
+      "#tests/*": ["./tests/*"],
+      "#config/*": ["./config/*"]
+    }
+  },
+  "include": [
+    "**/*",
+    "bin/**/*",
+    "commands/**/*",
+    "config/**/*",
+    "database/**/*",
+    "providers/**/*",
+    "start/**/*",
+    "tests/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
 }
